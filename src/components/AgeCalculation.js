@@ -10,7 +10,7 @@ class AgeCalculation extends Component {
 
     static getDerivedStateFromProps(props, state) {
         var age = new Date().getFullYear() - new Date(props.dob).getFullYear();
-        age  = age ? age : 0;
+        age = age ? age : 0;
         return {
             age: age
         };
@@ -27,15 +27,17 @@ class AgeCalculation extends Component {
     }
 
     render() {
+        const {name, dob} = this.props;
+        const {age} = this.state;
         return (
             <div className="flex flex-col">
                 <p>
-                    Name: {this.props.name}
+                    Name: {name}
                 </p>
                 <p>
-                    DOB: {this.props.dob}
+                    DOB: {dob}
                 </p>
-                <p>Age: {this.state.age}</p>
+                <p>Age: {age}</p>
             </div>
         )
     }
