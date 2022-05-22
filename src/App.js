@@ -1,25 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import ComponentA from "./components/ComponentA";
+import ComponentC from "./components/ComponentC";
+import ComponentB from "./components/ComponentB";
+import {UserContext, user} from "./components/UserContext";
+import {ChannelContext,channel} from "./components/ChannelContext";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <UserContext.Provider value={user}>
+            <ChannelContext.Provider value={channel}>
+                <div className="App">
+                    <ComponentA/>
+                    <ComponentB/>
+                    <ComponentC/>
+                </div>
+            </ChannelContext.Provider>
+        </UserContext.Provider>
+    );
 }
 
 export default App;
