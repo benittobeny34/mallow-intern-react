@@ -4,21 +4,20 @@ import {addCake} from "../redux/cake/CakeActions";
 import {connect} from "react-redux";
 
 function CakeContainer(props) {
-    const handleAddCake = () => {
-        props.addCake(1);
+    const handleAddCake = (pieces = 1) => {
+        props.addCake(pieces);
     }
-
-    const handleAddFiveCakes = () => {
-        props.addCake(5);
-    }
-
 
     return (
         <div>
             <h2>Number of Cakes {props.numOfCakes}</h2>
             <button onClick={props.buyCake}>Buy Cake</button>
-            <button onClick={handleAddCake}>Add One Cake</button>
-            <button onClick={handleAddFiveCakes}>Add Five Cakes</button>
+            <button onClick={() => {
+                handleAddCake()
+            }}>Add One Cake</button>
+            <button onClick={() => {
+                handleAddCake(5)
+            }}>Add Five Cakes</button>
         </div>
     )
 }
