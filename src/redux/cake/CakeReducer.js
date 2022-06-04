@@ -13,6 +13,7 @@ const cakeReducer = (state = initialState, action) => {
                 numOfCakes: state.numOfCakes - 1
             }
         case ADD_CAKE:
+            console.log(action);
             return {
                 ...state,
                 numOfCakes: state.numOfCakes + action.pieces
